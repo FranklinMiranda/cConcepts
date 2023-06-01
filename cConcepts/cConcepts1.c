@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 int main() {
 
@@ -115,7 +116,7 @@ int main() {
 	printf("\n Is %d and %d greater than %d %d", comparison2, comparison1, assignment, !(comparison1 < assignment && comparison2 < assignment));
 
 	// Sizeof Operator
-	printf("\n%d", sizeof(comparison1));
+	//printf("\n%d", sizeof(comparison1));
 
 	// Boolean data type stores true false values and returns 1 for true and 0 for false
 	bool isProgramming = false; 
@@ -198,11 +199,117 @@ int main() {
 	}
 
 	// Arrays
-	int array[] = { 25, 50, 75, 100 };
+	int numberArray[] = { 25, 50, 75, 100 };
 
-	printf("\n%d", array);
+	printf("\n%d", numberArray[0]);
+
+	numberArray[0] = 33;
+
+	printf("\n%d", numberArray[0]);
+
+	for (i = 0; i < 4; i++) {
+		printf("\n%d", numberArray[i]);
+	}
 
 
+	int counterArray[10];
+
+	for (i = 0; i < 10; i++) {
+		counterArray[i] = i;
+	}
+
+	for (i = 0; i < 10; i++) {
+		printf("\n%d", counterArray[i]);
+	}
+
+
+	// Multidimensional Array
+	int matrixArray[2][3] = { {1,2,3} , {4,5,6} };
+
+	printf("\n%d", matrixArray[0][2]);
+	matrixArray[0][2] = 123;
+	printf("\n%d", matrixArray[0][2]);
+
+	for (i = 0; i < 2; i++) {
+		for (j = 0; j < 3; j++) {
+			printf("\n%d", matrixArray[i][j]);
+		}
+	}
+
+
+	// String Array
+	char greeting[] = "Hello World!";
+	printf("\n%s", greeting);
+	printf("\n%c", greeting[0]);
+	greeting[0] = 'J';
+	printf("\n%s", greeting);
+
+	for (i = 0; i < 12; i++) {
+		printf("\n%c", greeting[i]);
+	}
+
+	char secondGreeting[] = { 'a','b','c','d','e','f','g', 'h', 'i','j', '\0'};
+
+	printf("\n%s", secondGreeting);
+
+	//printf("\n%lu", sizeof(secondGreeting));
+
+	char txt[] = "We are the so-called \"Vikings\" from the north.";
+
+	printf("\n%s", txt);
+
+	char text[] = "It\'s alright.";
+	printf("\n%s", text);
+
+	char backSlash[] = "This character \\ is called a backslash!";
+	printf("\n%s", backSlash);
+
+	// String Functions 
+	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	//printf("\n%d", strlen(alphabet));
+
+	// strlen and sizeof behave differently as sizeof includes the \0
+	// sizeof returns the memory size in bytes and not the actual string length
+	//printf("\n%lu", sizeof(alphabet));
+
+	// strcmp() function can be used to compare two strings, returns 0 if they are equal and another integer if they are not equal 
+	char str1[] = "Hello Worlds!";
+	char str2[] = "Hello Worlds!";
+
+	printf("\n%d", strcmp(str1, str2));
+
+	// scanf_s() function can be used to get user input 
+	//int userAge;
+
+	//printf("\nEnter your age, please!\n");
+
+	//scanf_s("%d", &userAge);
+
+	//printf("\nYour age is %d", userAge);
+
+	// Using scanf_s() to get multiple inputs 
+	/*
+	int age;
+	int height;
+	int weight;
+	
+	printf("\nEnter an age, height, weight and press enter: \n");
+
+	scanf_s("%d %d %d", &age, &height, &weight);
+	
+	printf("\nYour age is: %d", age);
+	printf("\nYour height is: %d", height);
+	printf("\nYour weight is: %d", weight);
+	*/
+
+	// Using scanf_s() to get and store a string input
+	char name[30];
+
+	printf("\nEnter your name: ");
+
+	gets(name);
+
+	printf("\nHello %s", name);
 
 	return 0;
 }
