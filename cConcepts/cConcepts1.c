@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main() {
 
@@ -59,13 +60,11 @@ int main() {
 	int x = 5, y = 7, z = 12;
 	printf("\n%d", x + y + z);
 
-
 	// Explicit Conversion of integers to floating point number for mathematics operations
 	// const keyword declares variables as unchangeable and read-only
 	const float DIVISION = (float)5 / 2;
 
 	printf("\n%.1f", DIVISION);
-
 
 	// Operators 
 	// Arithmetic Operators
@@ -85,7 +84,6 @@ int main() {
 	x = --x;
 	printf("\nDecrement %d", x);
 	
-	 
 	// Assigment Operators
 	int assignment = 0;
 	printf("\nAssignment Value %d", assignment);
@@ -116,10 +114,93 @@ int main() {
 	printf("\n Is %d or %d greater than %d %d", comparison2, comparison1, z, comparison1 > assignment || comparison2 > assignment);
 	printf("\n Is %d and %d greater than %d %d", comparison2, comparison1, assignment, !(comparison1 < assignment && comparison2 < assignment));
 
-	
-
 	// Sizeof Operator
-	printf("\n%lu", sizeof(comparison1));
+	printf("\n%d", sizeof(comparison1));
+
+	// Boolean data type stores true false values and returns 1 for true and 0 for false
+	bool isProgramming = false; 
+	bool isProgrammingNotFun = false;
+
+	printf("\n%d", isProgramming);
+	printf("\n%d", isProgrammingNotFun);
+
+	// Conditions and If Statements
+	if (isProgrammingNotFun) {
+		printf("\nWhy is programming not fun?");
+	} else if (isProgramming) { printf("\nProgramming is fun!"); }
+
+	int time = 18;
+
+	(time > 20) ? printf("\nGood Night") : printf("\nGood Morning");
+
+	// Switch Statements 
+	int switchInput = 3;
+
+	switch (switchInput) {
+		case 1:
+			printf("\n1");
+			break;
+		case 2:
+			printf("\n2");
+			break;
+		default:
+			printf("\nNot 1 or 2");
+	}
+
+	// While Loop
+	int loopCounter = 8;
+
+	while (loopCounter > 0) {
+		printf("\n%d", loopCounter);
+		--loopCounter;
+	}
+
+	// Do While Loop
+	loopCounter = 10;
+	
+	do {
+		printf("\n%d", loopCounter);
+		--loopCounter;
+	} 
+	while (loopCounter > 0);
+
+	// For Loop
+	int i;
+
+	for (i = 0; i < 10; i++) {
+		printf("\n%d", i);
+	}
+
+
+	// Nested For Loop
+	int j;
+	for (i = 1; i < 11; i++) {
+		for (j = 1; j < 11; j++) {
+			printf("\n%d.%d", i, j);
+		}
+	}
+
+	// Break Statement with a Loop
+	for (i = 0; i < 10; i++) {
+		if (i == 4) {
+			printf("\nBreaking the Loop at 4");
+			break;
+		}
+		printf("\n%d", i);
+	}
+
+	// Continue Statement with a Loop
+	for (i = 0; i < 10; i++) {
+		if (i == 4) {
+			continue;
+		}
+		printf("\n%d", i);
+	}
+
+	// Arrays
+	int array[] = { 25, 50, 75, 100 };
+
+	printf("\n%d", array);
 
 
 
