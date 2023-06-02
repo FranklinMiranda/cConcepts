@@ -302,14 +302,33 @@ int main() {
 	printf("\nYour weight is: %d", weight);
 	*/
 
-	// Using scanf_s() to get and store a string input
-	char name[30];
+	// Using gets() to get and store a string input
+	//char name[30];
 
-	printf("\nEnter your name: ");
+	//printf("\nEnter your name: ");
 
-	gets(name);
+	//gets(name);
 
-	printf("\nHello %s", name);
+	//printf("\nHello %s", name);
+
+	// Accessing Memory Addresses with the reference operator &
+	int currentYear = 2023;
+	int* yearPtr = &currentYear;
+	int *yearPtr1 = &currentYear;
+
+	printf("\n%p", &currentYear);
+	printf("\n%p", yearPtr);
+	printf("\n%p", yearPtr1);
+
+	// Dereferencing the variable with a pointer
+	printf("\n%d", *yearPtr);
+
+	// Accessing Array Elements with Pointers
+	int digitsArray[] = { 1,2,3,4,5,6,7,8,9 };
+
+	for (i = 0; i < 10; i++) {
+		printf("\n%p", &digitsArray[i]);
+	}
 
 	return 0;
 }
