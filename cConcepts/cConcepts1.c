@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 void printGreeting();
 
@@ -10,6 +11,10 @@ void printNumberArray();
 
 int printAddition();
 
+int recursiveAddition();
+
+int recursiveSum();
+
 int main() {
 
 	// Data Types
@@ -18,7 +23,7 @@ int main() {
 	int variables store integers (whole numbers)
 	float variables store floating point numbers, with decimals,
 	char variables store single characters, such as 'a' or 'B'
-	double variables store floating point numbers, with decimals	
+	double variables store floating point numbers, with decimals
 	*/
 
 	int number = 8;
@@ -92,7 +97,7 @@ int main() {
 	printf("\nIncrement %d", x);
 	x = --x;
 	printf("\nDecrement %d", x);
-	
+
 	// Assigment Operators
 	int assignment = 0;
 	printf("\nAssignment Value %d", assignment);
@@ -127,7 +132,7 @@ int main() {
 	//printf("\n%d", sizeof(comparison1));
 
 	// Boolean data type stores true false values and returns 1 for true and 0 for false
-	bool isProgramming = false; 
+	bool isProgramming = false;
 	bool isProgrammingNotFun = false;
 
 	printf("\n%d", isProgramming);
@@ -136,7 +141,8 @@ int main() {
 	// Conditions and If Statements
 	if (isProgrammingNotFun) {
 		printf("\nWhy is programming not fun?");
-	} else if (isProgramming) { printf("\nProgramming is fun!"); }
+	}
+	else if (isProgramming) { printf("\nProgramming is fun!"); }
 
 	int time = 18;
 
@@ -146,14 +152,14 @@ int main() {
 	int switchInput = 3;
 
 	switch (switchInput) {
-		case 1:
-			printf("\n1");
-			break;
-		case 2:
-			printf("\n2");
-			break;
-		default:
-			printf("\nNot 1 or 2");
+	case 1:
+		printf("\n1");
+		break;
+	case 2:
+		printf("\n2");
+		break;
+	default:
+		printf("\nNot 1 or 2");
 	}
 
 	// While Loop
@@ -166,12 +172,11 @@ int main() {
 
 	// Do While Loop
 	loopCounter = 10;
-	
+
 	do {
 		printf("\n%d", loopCounter);
 		--loopCounter;
-	} 
-	while (loopCounter > 0);
+	} while (loopCounter > 0);
 
 	// For Loop
 	int i;
@@ -256,7 +261,7 @@ int main() {
 		printf("\n%c", greeting[i]);
 	}
 
-	char secondGreeting[] = { 'a','b','c','d','e','f','g', 'h', 'i','j', '\0'};
+	char secondGreeting[] = { 'a','b','c','d','e','f','g', 'h', 'i','j', '\0' };
 
 	printf("\n%s", secondGreeting);
 
@@ -300,11 +305,11 @@ int main() {
 	int age;
 	int height;
 	int weight;
-	
+
 	printf("\nEnter an age, height, weight and press enter: \n");
 
 	scanf_s("%d %d %d", &age, &height, &weight);
-	
+
 	printf("\nYour age is: %d", age);
 	printf("\nYour height is: %d", height);
 	printf("\nYour weight is: %d", weight);
@@ -322,7 +327,7 @@ int main() {
 	// Accessing Memory Addresses with the reference operator &
 	int currentYear = 2023;
 	int* yearPtr = &currentYear;
-	int *yearPtr1 = &currentYear;
+	int* yearPtr1 = &currentYear;
 
 	printf("\n%p", &currentYear);
 	printf("\n%p", yearPtr);
@@ -372,6 +377,25 @@ int main() {
 	int sumOfFunction = printAddition(100, 120);
 	printf("\n%d", sumOfFunction);
 
+	printf("\n%d", recursiveAddition(numberDigits, 0, 0));
+
+	printf("\n%d", recursiveSum(10));
+
+
+	// Math Functions using the math.h header file
+	printf("\n%f", sqrt(25));
+	printf("\n%f", ceil(1.45));
+	printf("\n%f", floor(1.456));
+	printf("\n%f", pow(4, 3));
+	printf("\n%d", abs(-100));
+	printf("\n%f", acos(1 / sqrt(2)));
+	printf("\n%f", asin(1 / sqrt(2)));
+	printf("\n%f", atan(1));
+	printf("\n%f", cbrt(8));
+	printf("\n%f", cos(1));
+	printf("\n%f", sin(1));
+	printf("\n%f", tan(1));
+	printf("\n%f", exp(0));
 
 	return 0;
 }
@@ -392,4 +416,18 @@ void printNumberArray(int numbersArray[10]) {
 
 int printAddition(int num1, int num2) {
 	return num1 + num2;
+}
+
+int recursiveAddition(int arrayOfNumbers[10], int sum, int index) {
+	if (index == 10) { return sum; }
+	sum += arrayOfNumbers[index];
+	index += 1;
+
+	return recursiveAddition(arrayOfNumbers, sum, index);
+}
+
+int recursiveSum(int number) {
+	if (number == 0) { return number; }
+
+	return number + recursiveSum(number - 1);
 }
