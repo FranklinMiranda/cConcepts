@@ -2,6 +2,14 @@
 #include <stdbool.h>
 #include <string.h>
 
+void printGreeting();
+
+void printName();
+
+void printNumberArray();
+
+int printAddition();
+
 int main() {
 
 	// Data Types
@@ -330,5 +338,58 @@ int main() {
 		printf("\n%p", &digitsArray[i]);
 	}
 
+	// Memory Address of the name of the array is the same as the first element of the array
+	printf("\n%p", digitsArray);
+	printf("\n%p", &digitsArray[0]);
+
+	// The name of an array is a pointer to the first element of the array, accessible with the * operator
+	printf("\n%d", *digitsArray);
+
+	// To access other elements of the array using the array name as a pointer, increment the pointer 
+	printf("\n%d", *(digitsArray + 3));
+
+	// A loop can also be used to access the other elements of the array using the array name as a pointer, incrementing the point with the loop
+	for (i = 0; i < 9; i++) {
+		printf("\n%d", *(digitsArray + i));
+	}
+
+	// It is also possible to change the values of array elements with the array name as pointers
+	*(digitsArray + 8) = 123;
+	printf("\n%d", *(digitsArray + 8));
+
+
+	printGreeting();
+	printGreeting();
+	printGreeting();
+
+	printName("Franklin", 24);
+
+	int numberDigits[10] = { 0,1,2,3,4,5,6,7,8,9 };
+	printNumberArray(numberDigits);
+
+
+	printf("\n%d", printAddition(10, 20));
+	int sumOfFunction = printAddition(100, 120);
+	printf("\n%d", sumOfFunction);
+
+
 	return 0;
+}
+
+void printGreeting() {
+	printf("\n Hello World!");
+}
+
+void printName(char name[], int age) {
+	printf("\n Hello %s you are %d years old!", name, age);
+}
+
+void printNumberArray(int numbersArray[10]) {
+	for (int i = 0; i < 10; i++) {
+		printf("\n%d", numbersArray[i]);
+	}
+}
+
+int printAddition(int num1, int num2) {
+	return num1 + num2;
 }
